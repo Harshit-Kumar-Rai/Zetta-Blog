@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Zetta Home {% endblock %}
+
+{% block content %}
+<div class="row">
+    <!-- category -->
+    <div class="col-sm-3">
+        <div class="card mt-3">
+            <div class="card-body">
+                <h4 class="card-title">Category</h4>
+            </div>
+        </div>
+        <!-- catrgory title -->
+        {% for i in cat %}
+        <div class="card mt-2">
+            <div class="card-body">
+
+                    <img src="/{{i.image}}" alt="" style="display: inline;height: 80px;width: 80px;border-radius: 50%;">
+                    <h4 class="card-title" style="display: inline;margin-left: 2rem;"><a href="{% url 'bycat' cat=i.cat_id %}" style="text-decoration: none;color: black;">{{i.name}}</a></h4>
+                    
+                
+                
+            </div>
+        </div>
+        {% endfor %}
+        <!-- category title end -->
+        
+    </div>
+    <!-- Main Content -->
+    <div class="col-sm-6">
+        {% for i in data %}
+            {% if i.is_published %}
+        <div class="card mt-3 mx-3 px-3">
+            <div class="card-body">
+                <img class="card-img-top" src="/{{i.image}}" alt="Card image cap">
+                <h4 class="card-title pt-2">{{i.title}}</h4>
+                <p class="card-text">{{i.short |safe}}</p>
+                <a href="{% url 'readmore' id=i.id %}" class="card-link fw-bold" style="text-decoration: none;border: 1px solid;color: black;padding: 5px 5px 5px 5px;">Read More »</a>
+                
+            </div>
+        </div>
+            {% endif %}
+        {% endfor %}
+
+    </div>
+
+    <!-- Popular Posts -->
+    <div class="col-sm-3 ">
+        <div class="card mt-3 mx-1 px-2">
+            <div class="card-body">
+
+                <h4 class="card-title pt-2">Popular Posts</h4>
+
+            </div>
+            <!-- Popular Post Content  -->
+            {% for i in popular%}
+            <div class="card mt-2">
+                <div class="card-body">
+                    <img class="card-img-top" src="/{{i.image}}"alt="Card image cap">
+                    <h4 class="card-title pt-2">{{i.title}}</h4>
+                    
+                    <a href="{% url 'readmore' id=i.id %}" class="card-link fw-bold" style="text-decoration: none;border: 1px solid;color: black;padding: 5px 5px 5px 5px;">Read More »</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="card mt-3 mx-1 px-2">
+            <div class="card-body">
+
+                <h4 class="card-title pt-2">Authors</h4>
+
+            </div>
+            <!-- Authors Details -->
+            {% for i in author %}
+            <div class="card mt-2">
+                <div class="card-body">
+                    <img class="card-img-top" src="/{{i.img}}" alt="{{i.author.name}}" style="height: 200px;width: 200px;display:block; margin-left: auto;margin-right: auto;border-radius: 50% 1px ;">
+                    <h4 class="card-title pt-2">{{i.name}}</h4>
+                    <p class="card-text"> {{i.about |slice:"150"}}</p>
+                    
+                    
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+        
+
+    </div>
+</div>
+{% endblock %}

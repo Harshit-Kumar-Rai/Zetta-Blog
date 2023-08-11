@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+      {% if data %}
+        {% for i in data %}
+        
+      <div class="card mt-5">
+        <div class="card-body">
+          <img class="card-img-top" src="/{{i.image}}" alt="">
+          <h4 class="card-title fw-bold pt-3">{{i.title}}</h4>
+          <p class="card-text">{{i.short|safe}}</p> 
+          <a href="{% url 'readmore' id=i.id %}" class="card-link fw-bold" 
+          style="text-decoration: none;border: 1px solid;color: black;padding: 5px 5px 5px 5px;">Read More »</a>
+          {% endfor %}
+          {% else %}
+          <div class="card-body mt-5">
+            
+              <h1 class="card-title mt-5 fw-bold">Sorry</h4>
+              <p class="card-title mt-2">Nothing to show related this..</p>
+              <a href="/" >Go back..</a>
+            
+          </div>
+          
+          {% endif %}
+          
+          <br>
+          
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
+{% endblock %}

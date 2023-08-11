@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}Zetta|{{data.title |safe}} {% endblock %}
+{% block content %}
+
+<div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-8">
+    <div class="card mt-5">
+      <div class="card-body">
+        <img class="card-img-top" src="/{{data.image}}" alt="">
+        <h4 class="card-title pt-3">{{data.title}}</h4>
+        <p class="card-text">{{data.content|safe}}</p>
+        <br>
+        <style>
+          .deco{
+            display: inline;
+            border: 1px solid;
+            color: black;
+            padding: 5px 5px 5px 5px;
+            justify-content: space-between;
+            
+          }
+        </style>
+        <h6 class="deco">Views {{data.views}}</h4>
+        <a href="{% url 'like' data.id %}"  ><button class="btn btn-dark" style="margin-bottom: 6px;">like {{data.likes}}</button></a>
+        <h6 class="deco">Author {{data.author}}</h4>
+        <h6 class="deco">Category {{data.cat}}</h4>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-sm-3">
+    <div class="card mt-5">
+      <div class="card-body">
+        <h4 class="card-title">Author</h4>
+      </div>
+
+      <div class="card mt-2">
+        <div class="card-body">
+          <img class="card-img-top" src="/{{data.author.img}}" alt=""
+            style="height: 250px;width: 250px;border-radius: 50%; display: block;margin-left: auto;margin-right: auto;">
+          <h4 class="card-title pt-5">{{data.author.name}}</h4>
+          <p class="card-text"> {{data.author.about|safe}}</p>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}
