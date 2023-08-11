@@ -1,6 +1,19 @@
 # Zetta-Blog
 A simple web application using python and djano
+# Features
+- You can create post and save into the database 
+- View your post
+- Post by category
+- You can like post
+- See total views on post
+- Popular post
+- View post by particular category
+- if no post related to category then show error messages
 
+### if you want to modify 
+Django admin Username and Password
+- Username = admin
+- Password = admin
 # Screenshots
 ## Home Page
 ![Home Page](https://github.com/Harshit-Kumar-Rai/Zetta-Blog/assets/106249416/61c373a0-cdb9-409c-adeb-5b3251223969)
