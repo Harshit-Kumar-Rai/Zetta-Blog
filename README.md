@@ -9,6 +9,7 @@ A simple web application using python and djano
 - Popular post
 - View post by particular category
 - if no post related to category then show error messages
+- Responsive
 
 ### if you want to modify 
 Django admin Username and Password
